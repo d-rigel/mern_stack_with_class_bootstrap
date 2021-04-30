@@ -1,0 +1,72 @@
+ "client": "npm start --prefix client// cd client && npm start "
+
+  state = {
+          items: [
+              {id: uuid(), name: "Milk"},
+              {id: uuid(), name: "Bread"},
+              {id: uuid(), name: "Wheat"},
+              {id: uuid(), name: "Candy"}
+          ]
+      }
+
+      //   const { items } = this.state;
+
+
+      <Button
+                 color="dark"
+                 style={{marginBottom: "2rem"}}
+                    // onClick={() => {
+                        
+                    //     const name = prompt("Enter Item");
+                    //     if(name) {
+                    //         this.setState((state) => ({
+                    //             items: [...state.items, {id: uuid(), name}]
+                    //         }));
+                    //     }
+                    //     console.log(items)
+                    // }}
+                 >
+                     Add Item
+                 </Button>
+
+         {id: uuid(), name: "Milk"},
+        {id: uuid(), name: "Bread"},
+        {id: uuid(), name: "Wheat"},
+        {id: uuid(), name: "Water"}
+
+     export const getItems = () => {
+    return {
+        type: GET_ITEMS
+    };
+};
+
+export const addItem = item => {
+    return {
+        type: ADD_ITEM,
+        payload: item
+    };
+};
+
+export const deleteItem = id => {
+    return {
+        type: DELETE_ITEM,
+        payload: id
+    };
+};
+
+
+ <TransitionGroup className="shopping-list">
+                         {items.map(({ id, name }) => (
+                             <CSSTransition key={id} timeout={500} classNames="fade"> 
+                                 <ListGroupItem>
+                                     <Button
+                                     className="remove-btn"
+                                     color="danger"
+                                     size="sm"
+                                     onClick={this.onDeleteClick.bind(this, id)}
+                                     >&times;</Button>
+                                     {name}
+                                 </ListGroupItem>
+                             </CSSTransition>
+                         ))}
+                     </TransitionGroup>
