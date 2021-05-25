@@ -1,0 +1,4 @@
+{
+    "MONGO_URI": "mongodb+srv://emmanuel:@alozie444@cluster03.5gvzm.mongodb.net/shoppinglist?retryWrites=true&w=majority",
+    "jwtSecret": "sl_myjwtSecret"
+}

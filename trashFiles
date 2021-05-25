@@ -70,3 +70,60 @@ export const deleteItem = id => {
                              </CSSTransition>
                          ))}
                      </TransitionGroup>
+
+                     process.env.MONGO_URI
+
+//auth.js
+//Create salt & hash
+        bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(newUser.password, salt, (err, hash) => {
+                if(err) throw err;
+                newUser.password = hash;
+                newUser.save()
+                .then(user => {
+
+                    jwt.sign(
+                        { id: user.id },
+                        config.get("jwtSecret"),
+                        { expiresIn: 3600 },
+                        (err, token) => {
+                            if (err) throw err
+                            res.json({
+                                token,
+                                user: {
+                                    id: user.id,
+                                    name: user.name,
+                                    email: user.email
+                                }
+                            })
+                        }
+                    )
+                    
+                })
+            })
+        })
+
+         const newItem = {
+      name: this.state.name,
+    };
+
+    //Add Item via addItem action
+    this.props.addItem(newItem);
+
+    <Button
+          color="dark"
+          style={{ marginBottom: "2rem" }}
+          onClick={this.toggle}>
+          Add Item
+        </Button>
+
+        <NavItem>
+          <Logout />
+        </NavItem>
+
+        <NavItem>
+          <RegisterModal />
+        </NavItem>
+        <NavItem>
+          <LoginModal />
+        </NavItem>
